@@ -10,7 +10,7 @@ fetch(file_url).then((response) => {
     }
     return response.text();
 }).then((text) => {
-    ptag.textcontent = text;
+    ptag.textContent = text;
 }).catch((error) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
 });
