@@ -10,6 +10,7 @@ fetch(file_url).then((response) => {
     }
     return response.text();
 }).then((text) => {
+    text = text.replace(/\n/g,"<br>")
     ptag.textContent = text;
 }).catch((error) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
