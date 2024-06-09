@@ -10,9 +10,27 @@ fetch(file_url).then((response) => {
     }
     return response.text();
 }).then((text) => {
-    text = text.replace(/\n/g,"<br>")
+    //text = text.replace(/\n/g,"<br>")
     ptag.textContent = text;
 }).catch((error) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
 });
 var s = [];
+class Node = {
+    node_type;
+    children;
+    constructor(node_type,children){
+        this.node_type = node_type;
+        this.children =children;
+    }
+};
+class Type = {
+    tag_name;
+    attribute;
+    text;
+    consrructor(tag_name,attr,text){
+        this.tag_name = tag_name;
+        this.attribute = attr;
+        this.text = text;
+    }
+};
