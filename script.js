@@ -4,7 +4,8 @@ var ptag = document.getElementById("context");
 ptag.textcontent = file.result;*/
 var ptag = document.getElementById("context");
 var file_url = "sample.sharp";
-var TXT
+var TXT;
+var l = -1;
 fetch(file_url).then((response) => {
     if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`);
@@ -14,6 +15,8 @@ fetch(file_url).then((response) => {
     //text = text.replace(/\n/g,"<br>")
     ptag.textContent = text;
     TXT = text;
+    l = TXT.length;
+    perse();
 }).catch((error) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
 });
@@ -37,7 +40,7 @@ class Type{
     }
 };
 //text = ptag.textContent;
-var l = TXT.length
+
 var S,T,attr;
 function tagAttr(i){
     while(TXT[i] != ">"){
@@ -59,6 +62,8 @@ function tagAttr(i){
     console.log("attr  "+attr);
     return i+1
 }
+function perse(){
+i=0
 while(i < l){
     if(TXT[i] == "<"){
         /*i+=1;
@@ -68,4 +73,5 @@ while(i < l){
         }*/
         i = tagAttr(i+1);
     } 
+}
 }
