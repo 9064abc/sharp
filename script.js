@@ -72,6 +72,10 @@ while(i < l){
             i+=1;
         }*/
         i = tagAttr(i+1);
+    }else if(TXT[i] =="#"){
+        i += 1
+    }else{
+        i += 1;
     } 
 }
 }
