@@ -18,7 +18,7 @@ fetch(file_url).then((response) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
 });
 var s = {};
-class Node = {
+class Node{
     node_type;
     children = [];
     constructor(node_type,children){
@@ -26,7 +26,7 @@ class Node = {
         this.children =children;
     }
 };
-class Type = {
+class Type{
     tag_name;
     attribute;
     text;
