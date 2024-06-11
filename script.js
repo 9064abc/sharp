@@ -41,8 +41,11 @@ class Type{
 };
 //text = ptag.textContent;
 
-var S,T,attr;
+
 function tagAttr(i){
+    var S = "";
+    var T = "";
+    var attr = "";
     while(TXT[i] != ">"){
         S += TXT[i];
         i+=1;
