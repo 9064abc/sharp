@@ -61,7 +61,7 @@ function tagAttr(i){
         attr += S[j]
         j += 1;
     }
-    console.log("text  "+T);
+    console.log("tag_name  "+T);
     console.log("attr  "+attr);
     return i+1
 }
