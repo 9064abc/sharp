@@ -26,7 +26,10 @@ class Node{
     children = [];
     constructor(node_type,children){
         this.node_type = node_type;
-        this.children =children;
+        //this.children.push(children);
+    }
+    Nchild(child){
+        this.children.push(child);
     }
 };
 class Type{
@@ -79,20 +82,23 @@ function tagAttr(i){
     return i+1
 }
 function perse(){
-i=0
-while(i < l){
-    if(TXT[i] == "<"){
-        /*i+=1;
-        while(TXT[i] != ">"){
-            S += TXT[i];
-            i+=1;
-        }*/
-        i = tagAttr(i+1);
-    }else if(TXT[i] =="#"){
-        i += 1
-        i = perse_text(i);
-    }else{
-        i += 1;
-    } 
-}
+    i=0
+    var type = new Type("sharp","","parent");
+    var dom = new Node(type,0);
+    console.log(dom);
+    while(i < l){
+        if(TXT[i] == "<"){
+            /*i+=1;
+            while(TXT[i] != ">"){
+                S += TXT[i];
+                i+=1;
+            }*/
+            i = tagAttr(i+1);
+        }else if(TXT[i] =="#"){
+            i += 1
+            i = perse_text(i);
+        }else{
+            i += 1;
+        } 
+    }
 }
