@@ -55,7 +55,7 @@ function perse_text(i){
             j += 1
         }
     }
-    console.log("text  ",S);
+    console.log("text  "+S);
     return j+1;
 }
 
