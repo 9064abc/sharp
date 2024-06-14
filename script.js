@@ -5,7 +5,8 @@ ptag.textcontent = file.result;*/
 var ptag = document.getElementById("context");
 var file_url = "sample.sharp";
 var TXT;
-var l = -1;
+var ln = -1;
+var l;
 fetch(file_url).then((response) => {
     if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`);
@@ -15,7 +16,7 @@ fetch(file_url).then((response) => {
     //text = text.replace(/\n/g,"<br>")
     ptag.textContent = text;
     TXT = text;
-    l = TXT.length;
+    ln = TXT.length;
     perse();
 }).catch((error) => {
     ptag.textContent = `Could not fetch verse: ${error}`;
@@ -62,12 +63,13 @@ function tagAttr(i){
     var S = "";
     var T = "";
     var attr = "";
+    var j = 0
     while(TXT[i] != ">"){
         S += TXT[i];
         i+=1;
     }
-    var l = S.length
-    var j = 0
+    l = S.length
+    
     while(S[j]!="{" && j<l){
         T += S[j];
         j += 1;
@@ -86,7 +88,7 @@ function perse(){
     var type = new Type("sharp","","parent");
     var dom = new Node(type,0);
     console.log(dom);
-    while(i < l){
+    while(i < ln){
         if(TXT[i] == "<"){
             /*i+=1;
             while(TXT[i] != ">"){
