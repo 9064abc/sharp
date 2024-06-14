@@ -40,7 +40,20 @@ class Type{
     }
 };
 //text = ptag.textContent;
-
+function perse_text(i){
+    var j = i;
+    var S = "";
+    while(TXT[j] != "#"){
+        if(TXT[j] == "<"){
+            j = tagAttr(j+1);
+        }else{
+            S += TXT[j];
+            j += 1
+        }
+    }
+    console.log("text  ",S);
+    return j+1;
+}
 
 function tagAttr(i){
     var S = "";
@@ -77,6 +90,7 @@ while(i < l){
         i = tagAttr(i+1);
     }else if(TXT[i] =="#"){
         i += 1
+        i = perse_text(i);
     }else{
         i += 1;
     } 
