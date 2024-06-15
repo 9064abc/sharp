@@ -26,7 +26,7 @@ var s = {};
 class Node{
     node_type;
     children = [];
-    constructor(node_type,children){
+    constructor(node_type){
         this.node_type = node_type;
         //this.children.push(children);
     }
@@ -65,8 +65,9 @@ function perse_text(i,name,attr){
     console.log("text  "+S);
     var type = new Type(name,attr,S);
     //ch = ["head","body"]
-    var dom = new Node(type,ch);
+    var dom = new Node(type);
     nodes.push(dom);
+    nodes[-1].Nchildren(ch);
     return j+1;
 }
 
@@ -107,8 +108,9 @@ function perse(){
     i=0
     var type = new Type("sharp","","parent");
     var ch = ["head","body"]
-    var dom = new Node(type,ch);
+    var dom = new Node(type);
     nodes.push(dom);
+    nodes[-1].Nchildren(ch);
     console.log(nodes);
     while(i < ln){
         if(TXT[i] == "<"){
