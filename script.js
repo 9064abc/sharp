@@ -79,6 +79,9 @@ function tagAttr(i){
         attr += S[j]
         j += 1;
     }
+    while(S[i] != "#"){
+        i += 1;
+    }
     console.log("tag_name  "+T);
     console.log("attr  "+attr);
     return i+1
@@ -96,9 +99,11 @@ function perse(){
                 i+=1;
             }*/
             i = tagAttr(i+1);
-        }else if(TXT[i] =="#"){
-            i += 1
+            
             i = perse_text(i);
+        //}else if(TXT[i] =="#"){
+            //i += 1
+            //i = perse_text(i);
         }else{
             i += 1;
         } 
