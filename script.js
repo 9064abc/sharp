@@ -67,7 +67,7 @@ function perse_text(i,name,attr){
     //ch = ["head","body"]
     var dom = new Node(type);
     nodes.push(dom);
-    nodes[-1].Nchildren(ch);
+    nodes[nodes.length-1].Nchildren(ch);
     return j+1;
 }
 
@@ -110,7 +110,7 @@ function perse(){
     var ch = ["head","body"]
     var dom = new Node(type);
     nodes.push(dom);
-    nodes[-1].Nchildren(ch);
+    nodes[nodes.length-1].Nchildren(ch);
     console.log(nodes);
     while(i < ln){
         if(TXT[i] == "<"){
