@@ -95,7 +95,7 @@ function tagAttr(i){
         attr += S[j]
         j += 1;
     }
-    while(S[i] != "#"){
+    while(TXT[i] != "#"){
         i += 1;
     }
     console.log("tag_name  "+T);
