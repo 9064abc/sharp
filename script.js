@@ -75,7 +75,7 @@ function perse_text(i,name,attr){
     var dom = new Node(type);
     nodes.push(dom);
     nodes[nodes.length-1].Nchildren(ch);
-    return j+1;
+    return [j+1,dom];
 }
 
 function tagAttr(i){
@@ -110,7 +110,7 @@ function tagAttr(i){
     console.log("attr  "+attr);
     makeP("attr  :"+attr);
     i = perse_text(i+1,T,attr);
-    r = [i+1,T];
+    r = [i[0]+1,i[1]];
     return r
 }
 function perse(){
@@ -123,17 +123,7 @@ function perse(){
     console.log(nodes);
     while(i < ln){
         if(TXT[i] == "<"){
-            /*i+=1;
-            while(TXT[i] != ">"){
-                S += TXT[i];
-                i+=1;
-            }*/
             i = tagAttr(i+1)[0];
-            
-            //i = perse_text(i);
-        //}else if(TXT[i] =="#"){
-            //i += 1
-            //i = perse_text(i);
         }else{
             i += 1;
         } 
