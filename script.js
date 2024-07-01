@@ -64,7 +64,9 @@ function perse_text(i,name,attr){
             j = r[0];
             ch.push(r[1]);
         }else{
-            S += TXT[j];
+            if(TXT[j]!=" " && TXT[j]!="\n"){ 
+                S += TXT[j];
+            }
             j += 1
         }
     }
