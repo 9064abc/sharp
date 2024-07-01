@@ -9,7 +9,7 @@ var ln = -1;
 var l;
 var nodes = [];
 function makeP(S){
-    var el = document.querySelector(".ptag");
+    var el = document.querySelector("#ptag");
     var p = document.createElement("p");
     p.textContent = S;
     el.appendChild(p);
