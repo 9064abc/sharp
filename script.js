@@ -73,8 +73,9 @@ function perse_text(i,name,attr){
     var type = new Type(name,attr,S);
     //ch = ["head","body"]
     var dom = new Node(type);
-    nodes.push(dom);
-    nodes[nodes.length-1].Nchildren(ch);
+    //nodes.push(dom);
+    //nodes[nodes.length-1].Nchildren(ch);
+    dom.Nchildren(ch);
     return [j+1,dom];
 }
 
@@ -116,18 +117,23 @@ function tagAttr(i){
 function perse(){
     i=0
     var type = new Type("sharp","","parent");
-    var ch = ["head","body"]
+    //var ch = ["head","body"]
+    var ch = [];
+    var r
     var dom = new Node(type);
     nodes.push(dom);
-    nodes[nodes.length-1].Nchildren(ch);
+    //nodes[nodes.length-1].Nchildren(ch);
     console.log(nodes);
     while(i < ln){
         if(TXT[i] == "<"){
-            i = tagAttr(i+1)[0];
+            r = tagAttr(i+1);
+            i = r[0];
+            ch.push(r[1]);
         }else{
             i += 1;
         } 
     }
+    nodes[nodes.length-1].Nchildren(ch);
     console.log(nodes);
 }
 
