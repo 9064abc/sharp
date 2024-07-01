@@ -26,7 +26,7 @@ fetch(file_url).then((response) => {
     ln = TXT.length;
     perse();
 }).catch((error) => {
-    ptag.textContent = `Could not fetch verse: ${error}`;
+    ctx.textContent = `Could not fetch verse: ${error}`;
 });
 var s = {};
 class Node{
