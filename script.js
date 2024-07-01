@@ -2,12 +2,18 @@
 file.readAsText(sample.sharp);
 var ptag = document.getElementById("context");
 ptag.textcontent = file.result;*/
-var ptag = document.getElementById("context");
+var ctx = document.getElementById("context");
 var file_url = "sample.sharp";
 var TXT;
 var ln = -1;
 var l;
 var nodes = [];
+function makeP(S){
+    var el = document.querySelector(".ptag");
+    var p = document.createElement("p");
+    p.textContent = S;
+    el.appendChild(p);
+}
 fetch(file_url).then((response) => {
     if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`);
@@ -15,7 +21,7 @@ fetch(file_url).then((response) => {
     return response.text();
 }).then((text) => {
     //text = text.replace(/\n/g,"<br>")
-    ptag.textContent = text;
+    ctx.textContent = text;
     TXT = text;
     ln = TXT.length;
     perse();
@@ -63,6 +69,7 @@ function perse_text(i,name,attr){
         }
     }
     console.log("text  "+S);
+    makeP("text  "+S);
     var type = new Type(name,attr,S);
     //ch = ["head","body"]
     var dom = new Node(type);
@@ -99,7 +106,9 @@ function tagAttr(i){
         i += 1;
     }
     console.log("tag_name  "+T);
+    makeP("tag_name  "+T);
     console.log("attr  "+attr);
+    makeP("attr  "+attr);
     i = perse_text(i+1,T,attr);
     r = [i+1,T];
     return r
@@ -131,3 +140,4 @@ function perse(){
     }
     console.log(nodes);
 }
+
