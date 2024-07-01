@@ -69,7 +69,7 @@ function perse_text(i,name,attr){
         }
     }
     console.log("text  "+S);
-    makeP("text  "+S);
+    makeP("text  :"+S);
     var type = new Type(name,attr,S);
     //ch = ["head","body"]
     var dom = new Node(type);
@@ -106,9 +106,9 @@ function tagAttr(i){
         i += 1;
     }
     console.log("tag_name  "+T);
-    makeP("tag_name  "+T);
+    makeP("tag_name  :"+T);
     console.log("attr  "+attr);
-    makeP("attr  "+attr);
+    makeP("attr  :"+attr);
     i = perse_text(i+1,T,attr);
     r = [i+1,T];
     return r
