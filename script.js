@@ -146,6 +146,14 @@ function tagAttr(i){
     r = [i[0]+1,i[1]];
     return r
 }
+function htag(node,n){
+    makeHn(node.node_type.tag_name,n);
+    if(node.children.length != 0){
+        for(var child of node.children){
+            htag(child,n+1);
+        }
+    }
+}
 function perse(){
     i=0
     var type = new Type("sharp","","parent");
@@ -167,5 +175,6 @@ function perse(){
     }
     nodes[nodes.length-1].Nchildren(ch);
     console.log(nodes);
+    htag(nodes[0],1);
 }
 
