@@ -14,6 +14,12 @@ function makeP(S){
     p.textContent = S;
     el.appendChild(p);
 }
+function makeHn(S,n){
+    var el = document.querySelector("#hn");
+    var hn = document.createElement("h"+n.toString());
+    hn.textContent = S;
+    el.appendChild(hn);
+}
 fetch(file_url).then((response) => {
     if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`);
@@ -47,9 +53,18 @@ class Type{
     attribute;
     text;
     constructor(tag_name,attr,text){
+        var l = attr.length;
+        var i = 0;
+        var key = "";
+        attr = " " + attr;
         this.tag_name = tag_name;
         //this.attribute = attr;
         this.text = text;
+        while(i<l){
+            if(attr[i] == " "){
+                
+            }
+        }
     }
 };
 //text = ptag.textContent;
