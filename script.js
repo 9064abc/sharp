@@ -50,19 +50,34 @@ class Node{
 };
 class Type{
     tag_name;
-    attribute;
+    attribute = {};
     text;
     constructor(tag_name,attr,text){
         var l = attr.length;
-        var i = 0;
+        var i,j = 0;
         var key = "";
+        var v = "";
         attr = " " + attr;
         this.tag_name = tag_name;
         //this.attribute = attr;
         this.text = text;
         while(i<l){
             if(attr[i] == " "){
-                
+                i+=1;
+                key,v = "";
+                while(attr[i] != "="){
+                    key += attr[i];
+                    i += 1;
+                }
+                while(attr[i] != "\""){
+                    i += 1;
+                }
+                i+=1;
+                while(attr[i] != "\""){
+                    v += attr[i];
+                    i += 1;
+                }
+                attribute[key] = v;
             }
         }
     }
