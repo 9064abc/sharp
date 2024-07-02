@@ -17,7 +17,7 @@ function makeP(S){
 function makeHn(S,n){
     var el = document.querySelector("#hn");
     var hn = document.createElement("h"+n.toString());
-    hn.textContent = S + " " + n.toString();
+    hn.textContent = S+" "+n.toString();
     el.appendChild(hn);
 }
 fetch(file_url).then((response) => {
